@@ -106,6 +106,13 @@ form input {
      
 }
 
+.social h2 {
+    font-size: 1rem;       /* Tamaño pequeño y equilibrado */
+    font-weight: 600;      /* Se mantiene legible pero menos pesado */
+    margin-bottom: 8px;    /* Espacio justo con la línea de abajo */
+    color: #ffffff;        /* Blanco para que resalte sobre el fondo oscuro */
+}
+
 /* inicio de sesion*/
 
 .login-title {

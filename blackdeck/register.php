@@ -7,6 +7,21 @@
     <link rel="stylesheet" href="css/register.css"> 
 </head>
 <body>
+    <header>
+    <div class="header-top">
+        <a href="index.php">
+            <img src="img/logo.jpg" alt="Blashskate Logo" class="logo">
+        </a>
+        
+        <nav>
+            <a href="shop.php">Comprar</a>
+            <a href="sell.php">Vender</a>
+            <a href="register.php">Regístrate</a>
+        </nav>
+    </div>
+
+    
+</header>
     <form id="registroForm">
         <h2>Registrarse</h2>
         

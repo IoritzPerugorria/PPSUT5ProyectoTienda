@@ -16,7 +16,7 @@
         <nav>
             <a href="shop.php">Comprar</a>
             <a href="sell.php">Vender</a>
-            <a href="login.php">Login</a>
+            <a href="register.php">Regístrate</a>
         </nav>
     </div>
 
@@ -45,13 +45,36 @@
         </p>
     </div>
 <div class="social">
+    <h2>Nuestras redes sociales</h2>
     <span>@blashskate_</span>
     <a href="https://www.instagram.com/blashskate_" target="_blank">Instagram</a>
     <a href="https://www.facebook.com/blashskate_" target="_blank">Facebook</a>
     <a href="https://www.youtube.com/@blashskate_" target="_blank">YouTube</a>
     <a href="https://x.com/blashskate_" target="_blank">X</a>
 </div>
+<div class="footer-column">
+            <h3>SEDE PAMPLONA</h3>
+            <div class="info-item">
+                <span class="icon">📍</span>
+                <p>Calle Amaya, 16<br>31004 Pamplona (Navarra)</p>
+            </div>
+            <div class="info-item">
+                <span class="icon">📞</span>
+                <p>Teléfono: 948 160 835</p>
+            </div>
+        </div>
 
+        <div class="footer-column">
+            <h3>CONTACTO</h3>
+            <div class="info-item">
+                <span class="icon">✉️</span>
+                <p>blashskate@corregmail.com</p>
+            </div>
+            <div class="info-item">
+                <span class="icon">🕒</span>
+                <p><strong>Apertura tienda:</strong> 10:00 a 14:00h y 17:00 a 20:00h de lunes  a viernes y de 10:00 a 14:00 los sabados</p>
+            </div>
+        </div>
 </div>
 
 </body>

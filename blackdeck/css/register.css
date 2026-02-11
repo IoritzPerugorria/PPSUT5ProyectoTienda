@@ -1,19 +1,60 @@
-
-body {
+/* 1. RESET GENERAL */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
 }
 
+/* 2. BODY: Cambiamos a column para que el header se quede arriba */
+body {
+    background-color: #2b2b2b;
+    color: #f2f2f2;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Esto pone el header arriba y el form abajo */
+}
+
+/* 3. HEADER: Estilos de la parte de arriba */
+header {
+    background: #fff;
+    padding: 20px 60px;
+    border-bottom: 1px solid #ddd;
+    width: 100%;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    width: 80px;      
+    height: auto;     
+}
+
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: #000;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* 4. FORMULARIO: Mantenemos tus estilos originales intactos */
 form {
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     width: 300px;
+    /* Añadimos margin: auto para que se centre en el espacio restante */
+    margin: auto; 
 }
 
 input {
@@ -23,6 +64,7 @@ input {
     border-radius: 4px;
     border: 1px solid #fc5b5b;
     box-sizing: border-box;
+    color: #000; /* Aseguramos que el texto del input sea legible */
 }
 
 button {
@@ -40,13 +82,20 @@ button:hover {
     background-color: #e87b7b;
 }
 
+h2 {
+    text-align: center;
+    color: #000; /* Para que se vea sobre el fondo blanco del form */
+}
+
+/* Otros estilos que tenías */
 .error {
     color: red;
     margin-bottom: 10px;
     display: none;
 }
 
-h2 {
+.social {
+    margin-bottom: 20px;
     text-align: center;
+    margin-top: 60px;
 }
-
