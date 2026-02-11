@@ -1,0 +1,173 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #2b2b2b; /* gris */
+    color: #f2f2f2;
+}
+
+header {
+    background: #fff;
+    padding: 20px 60px;
+    border-bottom: 1px solid #ddd;
+}
+
+/* CONTENEDOR SUPERIOR */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGO */
+header h1 {
+    font-size: 32px;
+    color: #000;
+}
+
+/* MENU EN LÍNEA */
+nav {
+    display: flex;
+    gap: 30px;
+}
+
+nav a {
+    color: #000;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: #555;
+}
+
+.logo {
+    width: 80px;      /* cambia este valor si la quieres más pequeña */
+    height: auto;     /* mantiene proporción */
+}
+.social{
+    margin-bottom: 20px;
+     text-align: center;
+     margin-top: 60px;
+     
+}
+
+/* ===== PAGE LAYOUT ===== */
+
+.container {
+    min-height: calc(100vh - 120px); /* avoids overlapping header */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+/* ===== CARD ===== */
+
+.card {
+    background-color: #1f1f1f;
+    width: 100%;
+    max-width: 420px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+.card h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 26px;
+    color: #ffffff;
+    letter-spacing: 1px;
+}
+
+/* ===== FORM ===== */
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+label {
+    font-size: 14px;
+    color: #cccccc;
+}
+
+/* INPUTS */
+
+input[type="text"],
+input[type="number"],
+textarea,
+select {
+    background-color: #2b2b2b;
+    border: 1px solid #444;
+    border-radius: 6px;
+    padding: 10px 12px;
+    color: #f2f2f2;
+    font-size: 15px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #888;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+/* FILE INPUT */
+
+input[type="file"] {
+    font-size: 14px;
+    color: #ccc;
+}
+
+/* FOCUS STATES */
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #ffffff;
+}
+
+/* ===== BUTTON ===== */
+
+button {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #ffffff;
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+button:hover {
+    background-color: #e5e5e5;
+    transform: translateY(-1px);
+}
+
+/* ===== RESPONSIVE ===== */
+
+@media (max-width: 480px) {
+    .card {
+        padding: 22px;
+    }
+
+    .card h2 {
+        font-size: 22px;
+    }
+}
+
