@@ -60,7 +60,7 @@
             </div>
             <div class="info-item">
                 <span class="icon">📞</span>
-                <p>Teléfono: 948 160 835</p>
+                <p>Teléfono: 948 160 431</p>
             </div>
         </div>
 
