@@ -24,7 +24,7 @@
 
 </header>
 
-    <form id="registroForm">
+    <form id="editarPerfilForm">
         <h2>Editar perfil</h2>
         
         <input type="text" name="nombre" placeholder="Nombre" required>
@@ -35,6 +35,110 @@
         <input type="password" name="confirm_password" id="confirm_password" placeholder="Repetir contraseña" required>
         <button type="submit">Confirmar Cambios</button>
     </form>
+
+    <main class="shop-container">
+
+    
+
+    <section class="products">
+
+        <div class="product">
+            <div class="product-card">
+                <div class="image-box">
+                    <img src="https://images.unsplash.com/photo-1547447134-cd3f5c716030?auto=format&fit=crop&q=80&w=400" alt="Skate BlackDeck">
+                    <div class="tag">TOP</div>
+                </div>
+                <div class="info">
+                    <p class="category">BlackDeck x Steel Wings</p>
+                    <h2 class="product-title">Classic Raven Pro 8.0"</h2>
+                    <p class="price">84,95 €</p>
+                    <button class="add-to-cart">COMPRAR</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="image-box">
+                    <img src="https://images.unsplash.com/photo-1547447134-cd3f5c716030?auto=format&fit=crop&q=80&w=400" alt="Skate BlackDeck">
+                    <div class="tag">TOP</div>
+                </div>
+                <div class="info">
+                    <p class="category">BlackDeck x Steel Wings</p>
+                    <h2 class="product-title">Classic Raven Pro 8.0"</h2>
+                    <p class="price">84,95 €</p>
+                    <button class="add-to-cart">COMPRAR</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="image-box">
+                    <img src="https://images.unsplash.com/photo-1547447134-cd3f5c716030?auto=format&fit=crop&q=80&w=400" alt="Skate BlackDeck">
+                    <div class="tag">TOP</div>
+                </div>
+                <div class="info">
+                    <p class="category">BlackDeck x Steel Wings</p>
+                    <h2 class="product-title">Classic Raven Pro 8.0"</h2>
+                    <p class="price">84,95 €</p>
+                    <button class="add-to-cart">COMPRAR</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="image-box">
+                    <img src="https://images.unsplash.com/photo-1547447134-cd3f5c716030?auto=format&fit=crop&q=80&w=400" alt="Skate BlackDeck">
+                    <div class="tag">TOP</div>
+                </div>
+                <div class="info">
+                    <p class="category">BlackDeck x Steel Wings</p>
+                    <h2 class="product-title">Classic Raven Pro 8.0"</h2>
+                    <p class="price">84,95 €</p>
+                    <button class="add-to-cart">COMPRAR</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="image-box">
+                    <img src="https://images.unsplash.com/photo-1547447134-cd3f5c716030?auto=format&fit=crop&q=80&w=400" alt="Skate BlackDeck">
+                    <div class="tag">TOP</div>
+                </div>
+                <div class="info">
+                    <p class="category">BlackDeck x Steel Wings</p>
+                    <h2 class="product-title">Classic Raven Pro 8.0"</h2>
+                    <p class="price">84,95 €</p>
+                    <button class="add-to-cart">COMPRAR</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="image-box">
+                    <img src="https://images.unsplash.com/photo-1547447134-cd3f5c716030?auto=format&fit=crop&q=80&w=400" alt="Skate BlackDeck">
+                    <div class="tag">TOP</div>
+                </div>
+                <div class="info">
+                    <p class="category">BlackDeck x Steel Wings</p>
+                    <h2 class="product-title">Classic Raven Pro 8.0"</h2>
+                    <p class="price">84,95 €</p>
+                    <button class="add-to-cart">COMPRAR</button>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="image-box">
+                    <img src="https://images.unsplash.com/photo-1547447134-cd3f5c716030?auto=format&fit=crop&q=80&w=400" alt="Skate BlackDeck">
+                    <div class="tag">TOP</div>
+                </div>
+                <div class="info">
+                    <p class="category">BlackDeck x Steel Wings</p>
+                    <h2 class="product-title">Classic Raven Pro 8.0"</h2>
+                    <p class="price">84,95 €</p>
+                    <button class="add-to-cart">COMPRAR</button>
+                </div>
+            </div>
+        </div>
+        
+        
+
+
+    </section>
+            
+        
+        
+
+
+    </section>
 </body>
 </html>
 
