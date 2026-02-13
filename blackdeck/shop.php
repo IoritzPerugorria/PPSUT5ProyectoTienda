@@ -25,6 +25,7 @@
             <a href="shop.php">Comprar</a>
             <a href="sell.php">Vender</a>
             <a href="register.php">Regístrate</a>
+             <a href="profile.php">Perfil</a>
         </nav>
     </div>
 </header>
