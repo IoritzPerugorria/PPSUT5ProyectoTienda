@@ -46,36 +46,6 @@ nav a:hover {
     color: #555;
 }
 
-.header-search {
-    display: flex;
-    flex: 0 1 400px; /* El buscador no crecerá más de 400px */
-    margin: 0 20px;
-    border: 2px solid #333;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.header-search input {
-    flex-grow: 1;
-    border: none;
-    padding: 8px 12px;
-    outline: none;
-    font-size: 14px;
-}
-
-.header-search button {
-    background: #333;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.header-search button:hover {
-    background: #555;
-}
-
 .logo {
     width: 80px;      /* cambia este valor si la quieres más pequeña */
     height: auto;     /* mantiene proporción */
