@@ -62,7 +62,7 @@ input {
     padding: 8px;
     margin: 5px 0;
     border-radius: 4px;
-    border: 1px solid #fc5b5b;
+    border: 1px solid #ea4e4e;
     box-sizing: border-box;
     color: #000; /* Aseguramos que el texto del input sea legible */
 }
@@ -79,7 +79,7 @@ button {
 }
 
 button:hover {
-    background-color: #e87b7b;
+    background-color: #ea4e4e;
 }
 
 h2 {

@@ -10,10 +10,17 @@
 
 <header>
     <div class="header-top">
-        <a href="index.html">
+        <a href="index.php">
             <img src="img/logo.jpg" alt="Blashskate Logo" class="logo">
         </a>
-
+        <!-- Buscador -->
+        <div class="search-container">
+            <input 
+                type="text" 
+                id="searchInput" 
+                placeholder="Buscar productos..."
+            >
+        </div>
                 
         <nav>
             <a href="shop.php">Comprar</a>
