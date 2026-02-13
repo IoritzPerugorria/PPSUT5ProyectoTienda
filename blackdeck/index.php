@@ -68,7 +68,7 @@
             <h3>CONTACTO</h3>
             <div class="info-item">
                 <span class="icon">✉️</span>
-                <p>blashskate@corregmail.com</p>
+                <p>blashskate@gmail.com</p>
             </div>
             <div class="info-item">
                 <span class="icon">🕒</span>
