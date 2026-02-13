@@ -17,7 +17,7 @@
         <nav>
             <a href="shop.php">Comprar</a>
             <a href="sell.php">Vender</a>
-            <a href="login.php">Login</a>
+            <a href="register.php">Regístrate</a>
         </nav>
     </div>
 
