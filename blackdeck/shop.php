@@ -10,9 +10,16 @@
 
 <header>
     <div class="header-top">
-        <a href="index.php">
-            <img src="img/logo.jpg" alt="BlackDeck Logo" class="logo">
+        <a href="index.html">
+            <img src="img/logo.jpg" alt="Blashskate Logo" class="logo">
         </a>
+
+        <form class="header-search" action="shop.php" method="GET">
+            <input type="text" name="search" placeholder="Buscar tablas, trucks, zapas..." aria-label="Buscar">
+            <button type="submit">
+                <i class="fas fa-search"></i> 🔍
+            </button>
+        </form>
         
         <nav>
             <a href="shop.php">Comprar</a>
@@ -21,7 +28,6 @@
              <a href="profile.php">Perfil</a>
         </nav>
     </div>
-
 </header>
 
 <main class="shop-container">
