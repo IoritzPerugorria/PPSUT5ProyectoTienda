@@ -14,13 +14,7 @@
             <img src="img/logo.jpg" alt="Blashskate Logo" class="logo">
         </a>
 
-        <form class="header-search" action="shop.php" method="GET">
-            <input type="text" name="search" placeholder="Buscar tablas, trucks, zapas..." aria-label="Buscar">
-            <button type="submit">
-                <i class="fas fa-search"></i> 🔍
-            </button>
-        </form>
-        
+                
         <nav>
             <a href="shop.php">Comprar</a>
             <a href="sell.php">Vender</a>
