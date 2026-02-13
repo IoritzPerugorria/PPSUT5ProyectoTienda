@@ -46,7 +46,35 @@ nav a:hover {
     color: #555;
 }
 
+.header-search {
+    display: flex;
+    flex: 0 1 400px; /* El buscador no crecerá más de 400px */
+    margin: 0 20px;
+    border: 2px solid #333;
+    border-radius: 4px;
+    overflow: hidden;
+}
 
+.header-search input {
+    flex-grow: 1;
+    border: none;
+    padding: 8px 12px;
+    outline: none;
+    font-size: 14px;
+}
+
+.header-search button {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.header-search button:hover {
+    background: #555;
+}
 
 .logo {
     width: 80px;      /* cambia este valor si la quieres más pequeña */
@@ -180,113 +208,71 @@ nav a:hover {
     gap: 24px;
 }
 
-/* ---------- TITLES ---------- */
-.filters h3 {
-    font-size: 18px;
-    font-weight: 700;
-    color: #111;
-    margin: 0;
-    white-space: nowrap;
-}
 
-.filter-group h4 {
-    font-size: 14px;
-    font-weight: 600;
-    color: #555;
-    margin-bottom: 8px;
-}
-
-/* ---------- FILTER GROUP ---------- */
-.filter-group {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-}
-
-/* ---------- CHECKBOX LABELS ---------- */
-.filter-group label {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 14px;
-    color: #222;
-    cursor: pointer;
-    user-select: none;
-}
-
-/* ---------- CHECKBOX STYLING ---------- */
-.filter-group input[type="checkbox"] {
-    width: 16px;
-    height: 16px;
-    accent-color: #000;
-    cursor: pointer;
-}
-
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 768px) {
-    .filters {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .filter-group {
-        width: 100%;
-    }
-}
 /* ---------- PRODUCTS HEADER ---------- */
-.products-header {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto 32px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 24px;
+.topTitles {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
 }
 
 /* ---------- TITLE ---------- */
-.products-header h1 {
+.topTitles h2 {
     font-size: 28px;
     font-weight: 800;
     color: #ffffff;
-    margin: 0;
     white-space: nowrap;
 }
 
-/* ---------- SELECT ---------- */
-.products-header select {
-    padding: 10px 14px;
-    font-size: 14px;
-    font-weight: 600;
+
+
+.profilegrid{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+/* 4. FORMULARIO: Mantenemos tus estilos originales intactos */
+form {
+    background-color: #555;
+    padding: 20px;
     border-radius: 8px;
-    border: 1px solid #ddd;
-    background: #fff;
-    color: #111;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 300px;
+    /* Añadimos margin: auto para que se centre en el espacio restante */
+    margin: 50px; 
+}
+
+input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 1px solid #fc5b5b;
+    box-sizing: border-box;
+    color: #000; /* Aseguramos que el texto del input sea legible */
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-.products-header select:focus {
-    outline: none;
-    border-color: #000;
-    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.1);
+button:hover {
+    background-color: #e87b7b;
 }
 
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 640px) {
-    .products-header {
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .products-header h1 {
-        font-size: 24px;
-        text-align: center;
-    }
+/* Otros estilos que tenías */
+.error {
+    color: red;
+    margin-bottom: 10px;
+    display: none;
 }
 
-/* ---
 
 
 
