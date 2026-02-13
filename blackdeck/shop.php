@@ -10,7 +10,7 @@
 
 <header>
     <div class="header-top">
-        <a href="index.html">
+        <a href="index.php">
             <img src="img/logo.jpg" alt="BlackDeck Logo" class="logo">
         </a>
         
