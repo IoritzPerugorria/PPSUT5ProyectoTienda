@@ -1,0 +1,32 @@
+CREATE DATABASE IF NOT EXISTS blashskate;
+USE blashskate;
+
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    apellidos VARCHAR(100) NOT NULL,
+    correo VARCHAR(150) NOT NULL UNIQUE,
+    telefono VARCHAR(20),
+    password VARCHAR(255) NOT NULL,
+    is_admin BOOLEAN DEFAULT 0
+);
+
+CREATE TABLE products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    skate VARCHAR(150) NOT NULL,
+    precio DECIMAL(10, 2) NOT NULL,
+    anchuras VARCHAR(20) NOT NULL,
+    descripcion TEXT,
+    imagen VARCHAR(255) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- Usuario Administrador
+INSERT INTO users (nombre, apellidos, correo, telefono, password, is_admin) 
+VALUES ('Admin', 'Jefe', 'admin@blashskate.com', '600123456', 'contrasena', 1);
+
+-- Usuario de Prueba normal
+INSERT INTO users (nombre, apellidos, correo, telefono, password, is_admin) 
+VALUES ('Prueba', 'Skater', 'prueba@blashskate.com', '600654321', 'contrasena', 0);
