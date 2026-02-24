@@ -10,6 +10,21 @@ body {
     color: #f2f2f2;
 }
 
+/* buscador */
+/* Asegura que el header esté bien alineado */
+.header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Contenedor del buscador */
+.search-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
 header {
     background: #fff;
     padding: 20px 60px;
@@ -182,10 +197,10 @@ button:hover {
 #searchInput {
     width: 500px;
     max-width: 90%;
-    padding: 12px 20px;
+    padding: 15px 25px;
     border-radius: 50px;
     border: 2px solid #e0e0e0;
-    font-size: 16px;
+    font-size: 17px;
     background-color: #f5f5f5;
     outline: none;
     transition: all 0.3s ease;

@@ -124,8 +124,8 @@ if ($is_admin) {
             <label style="color:white; font-size:12px;">Nueva Contraseña (dejar en blanco para no cambiar):</label>
             <input type="password" name="password" placeholder="Escribe para cambiar contraseña">
             
-            <button type="submit" name="update_profile" style="background-color: #4CAF50;">Guardar Cambios</button>
-            <button type="button" onclick="window.location.href='profile.php?logout=1'" style="background-color: #ec6161; margin-top:15px;">Cerrar Sesión</button>
+            <button type="submit" name="update_profile" style="background-color: #516a7b;">Guardar Cambios</button>
+            <button type="button" onclick="window.location.href='profile.php?logout=1'" style="background-color: #ff6060; margin-top:15px;">Cerrar Sesión</button>
         </form>
     </div>
 
