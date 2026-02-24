@@ -78,7 +78,7 @@ if ($is_admin) {
             <input type="text" id="searchInput" name="search" placeholder="Buscar productos..." value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
             <button type="submit" style="display:none;">Buscar</button>
         </form>
-        <nav>
+        <nav class="header_nav">
             <a href="shop.php">Comprar</a>
             <a href="sell.php">Vender</a>
             <a href="profile.php">Perfil (<?= htmlspecialchars($_SESSION['username']) ?>)</a>
@@ -88,21 +88,22 @@ if ($is_admin) {
 
 
 
-<div class="main-container">
-    <div class="left-column">
-        <div class="topTitles">
-            <h2>Tu Perfil</h2>
-        </div>
-        <div class="profile-data">
+    <div class="main-container">
+        <div class="left-column">
+            <div class="topTitles">
+                <h2>Tu Perfil</h2>
             </div>
-    </div>
+            <div class="profile-data">
+                </div>
+        </div>
 
-    <div class="right-column">
-        <div class="topTitles">
-            <h2>Tus productos publicados</h2>
-        </div> 
+        <div class="right-column">
+            <div class="topTitles">
+                <h2>Tus productos publicados</h2>
+            </div> 
+        </div>
     </div>
-</div>
+   
 
 <div class="profilegrid">
     <div>

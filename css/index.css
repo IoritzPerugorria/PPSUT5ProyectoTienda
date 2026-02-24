@@ -60,7 +60,7 @@ nav a:hover {
 
 input, textarea, button {
     width: 100%;
-    margin-top: 10px;
+    
     padding: 10px;
     background: #222;
     border: 1px solid #444;
@@ -91,9 +91,7 @@ input, textarea, button {
     margin-bottom: 20px;
 }
 
-form input {
-    border-radius: 6px;
-}
+
 
 .logo {
     width: 80px;      /* cambia este valor si la quieres más pequeña */

@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <button type="submit" style="display:none;">Buscar</button>
         </form>
         
-        <nav>
+        <nav class=".header_nav">
             <a href="shop.php">Comprar</a>
             <a href="sell.php">Vender</a>
             <?php if(isset($_SESSION['user_id'])): ?>
