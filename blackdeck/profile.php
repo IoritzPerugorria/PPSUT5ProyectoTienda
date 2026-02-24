@@ -86,9 +86,22 @@ if ($is_admin) {
     </div>
 </header>
 
-<div class="topTitles">
-    <h2>Tu Perfil</h2>
-    <h2><?= $is_admin ? 'Panel de Control: Todos los productos' : 'Tus productos publicados' ?></h2>
+
+
+<div class="main-container">
+    <div class="left-column">
+        <div class="topTitles">
+            <h2>Tu Perfil</h2>
+        </div>
+        <div class="profile-data">
+            </div>
+    </div>
+
+    <div class="right-column">
+        <div class="topTitles">
+            <h2>Tus productos publicados</h2>
+        </div> 
+    </div>
 </div>
 
 <div class="profilegrid">

@@ -59,7 +59,7 @@ $result = $conn->query($sql);
                 <input type="hidden" name="search" value="<?= htmlspecialchars($_GET['search']) ?>">
             <?php endif; ?>
             
-            <h3>< Filtros</h3>
+            <h3>Filtros</h3>
             <div class="filter-group">
                 <h4>Ancho de tabla</h4>
                 <?php 
