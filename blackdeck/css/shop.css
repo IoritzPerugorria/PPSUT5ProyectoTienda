@@ -65,7 +65,7 @@ nav a:hover {
 #searchInput {
     width: 500px;              /* Más grande */
     max-width: 90%;            /* Que no se rompa en pantallas pequeñas */
-    padding: 15px 25px;        /* Alto cómodo */
+    padding: 12px 20px;        /* Alto cómodo */
     border-radius: 50px;       /* Súper redondo */
     border: 2px solid #e0e0e0;
     font-size: 17px;

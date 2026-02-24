@@ -20,7 +20,6 @@ header {
     background: #fff;
     padding: 20px 60px;
     border-bottom: 1px solid #ddd;
-    width: 100%;
 }
 
 .header-top {
@@ -105,6 +104,10 @@ h2 {
     flex: 1;
     display: flex;
     justify-content: center;
+    background: transparent !important; /* Quita el fondo blanco/gris */
+    box-shadow: none !important;        /* Quita la sombra */
+    border: none !important;            /* Quita bordes externos */
+    padding: 0 !important;
     margin: 0 20px;
 }
 
