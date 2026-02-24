@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $descripcion = $conn->real_escape_string($_POST['descripcion']);
     
     // Subida de imagen
-    $target_dir = "uploads/";
+    $target_dir = "../uploads/";
     $image_name = basename($_FILES["avatar"]["name"]);
     $target_file = $target_dir . time() . "_" . $image_name;
     
@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 <header>
     <div class="header-top">
-        <a href="index.php"><img src="img/logo.jpg" alt="Blashskate Logo" class="logo"></a>
+        <a href="index.php"><img src="../img/logo.jpg" alt="Blashskate Logo" class="logo"></a>
         
         <form class="search-container" method="GET" action="shop.php">
             <input type="text" id="searchInput" name="search" placeholder="Buscar productos..." value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">

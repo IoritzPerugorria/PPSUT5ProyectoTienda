@@ -15,7 +15,7 @@ require 'db.php';
 
 <header>
     <div class="header-top">
-        <a href="index.php"><img src="img/logo.jpg" alt="Blashskate Logo" class="logo"></a>
+        <a href="index.php"><img src="../img/logo.jpg" alt="Blashskate Logo" class="logo"></a>
         
         <form class="search-container" method="GET" action="shop.php">
             <input type="text" id="searchInput" name="search" placeholder="Buscar productos..." value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
