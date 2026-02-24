@@ -214,17 +214,33 @@ nav a:hover {
 .topTitles {
     display: grid;
     grid-template-columns: 1fr 2fr;
+    padding-left: 120px; /* Ajusta este valor para moverlo a la derecha */
+    margin-top: 30px;
 }
 
 /* ---------- TITLE ---------- */
+.main-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr; /* Tu estructura original */
+    gap: 50px;                     /* Espacio entre columnas */
+    margin-top: 40px;              /* Lo baja respecto al header */
+    padding: 0 40px;               /* Lo mueve un poco a la derecha */
+    min-height: 10vh;              /* Opcional: para que la línea sea larga aunque no haya datos */
+}
+
+.left-column {
+    border-right: 1px solid #444;  /* LA LÍNEA VERTICAL HASTA ABAJO */
+    padding-right: 50px;           /* Espacio entre el contenido y la línea */
+}
+
+/* Tus estilos de título se mantienen */
 .topTitles h2 {
     font-size: 28px;
     font-weight: 800;
     color: #ffffff;
     white-space: nowrap;
+    margin-bottom: 10px;           /* Espacio debajo del título */
 }
-
-
 
 .profilegrid{
     display: grid;

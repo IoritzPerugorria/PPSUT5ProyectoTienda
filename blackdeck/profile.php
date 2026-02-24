@@ -86,9 +86,22 @@ if ($is_admin) {
     </div>
 </header>
 
-<div class="topTitles">
-    <h2>Tu Perfil</h2>
-    <h2><?= $is_admin ? 'Panel de Control: Todos los productos' : 'Tus productos publicados' ?></h2>
+
+
+<div class="main-container">
+    <div class="left-column">
+        <div class="topTitles">
+            <h2>Tu Perfil</h2>
+        </div>
+        <div class="profile-data">
+            </div>
+    </div>
+
+    <div class="right-column">
+        <div class="topTitles">
+            <h2>Tus productos publicados</h2>
+        </div> 
+    </div>
 </div>
 
 <div class="profilegrid">
@@ -111,8 +124,8 @@ if ($is_admin) {
             <label style="color:white; font-size:12px;">Nueva Contraseña (dejar en blanco para no cambiar):</label>
             <input type="password" name="password" placeholder="Escribe para cambiar contraseña">
             
-            <button type="submit" name="update_profile" style="background-color: #4CAF50;">Guardar Cambios</button>
-            <button type="button" onclick="window.location.href='profile.php?logout=1'" style="background-color: #ec6161; margin-top:15px;">Cerrar Sesión</button>
+            <button type="submit" name="update_profile" style="background-color: #516a7b;">Guardar Cambios</button>
+            <button type="button" onclick="window.location.href='profile.php?logout=1'" style="background-color: #ff6060; margin-top:15px;">Cerrar Sesión</button>
         </form>
     </div>
 
