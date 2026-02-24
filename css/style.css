@@ -6,7 +6,8 @@
 }
 
 body {
-    background-color: #2b2b2b; /* gris */
+    background-color: #2b2b2b;
+    /* gris */
     color: #f2f2f2;
 }
 
@@ -32,16 +33,21 @@ header h1 {
 .search-container {
     flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     margin: 0 20px;
+    margin-left: 190px;
 }
 
 /* Input del buscador */
 #searchInput {
-    width: 500px;              /* Más grande */
-    max-width: 90%;            /* Que no se rompa en pantallas pequeñas */
-    padding: 12px 20px;        /* Alto cómodo */
-    border-radius: 50px;       /* Súper redondo */
+    width: 500px;
+    /* Más grande */
+    max-width: 90%;
+    /* Que no se rompa en pantallas pequeñas */
+    padding: 12px 20px;
+    /* Alto cómodo */
+    border-radius: 50px;
+    /* Súper redondo */
     border: 2px solid #e0e0e0;
     font-size: 17px;
     background-color: #f5f5f5;
@@ -142,14 +148,17 @@ button {
 }
 
 .logo {
-    width: 80px;      /* cambia este valor si la quieres más pequeña */
-    height: auto;     /* mantiene proporción */
+    width: 80px;
+    /* cambia este valor si la quieres más pequeña */
+    height: auto;
+    /* mantiene proporción */
 }
-.social{
+
+.social {
     margin-bottom: 20px;
-     text-align: center;
-     margin-top: 60px;
-     
+    text-align: center;
+    margin-top: 60px;
+
 }
 
 /* Contenedor de la tienda */
@@ -158,7 +167,8 @@ button {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 20px;
     padding: 40px 5%;
-    background-color: #f9f9f9; /* Fondo gris muy claro para que resalten los productos */
+    background-color: #f9f9f9;
+    /* Fondo gris muy claro para que resalten los productos */
 }
 
 /* Tarjeta de producto */
@@ -177,7 +187,8 @@ button {
 
 /* Contenedor de la imagen */
 .product-image {
-    background-color: #f4f4f4; /* El fondo gris suave que se ve en la foto */
+    background-color: #f4f4f4;
+    /* El fondo gris suave que se ve en la foto */
     padding: 20px;
     display: flex;
     justify-content: center;
@@ -205,7 +216,8 @@ button {
     font-size: 0.85rem;
     color: #666;
     margin-bottom: 15px;
-    height: 35px; /* Para que todos los textos midan lo mismo */
+    height: 35px;
+    /* Para que todos los textos midan lo mismo */
 }
 
 .product-info .price {
@@ -218,13 +230,15 @@ button {
 .product-info .origin {
     display: block;
     font-size: 0.7rem;
-    color: #5a32a8; /* Color morado de "HECHO EN EUROPA" */
+    color: #5a32a8;
+    /* Color morado de "HECHO EN EUROPA" */
     font-weight: bold;
 }
 
 .product-info .rating {
     font-size: 0.8rem;
-    color: #ffb400; /* Color de las estrellas */
+    color: #ffb400;
+    /* Color de las estrellas */
     margin-top: 5px;
 }
 
@@ -357,7 +371,7 @@ body {
 }
 
 .card:hover {
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .image-box {
@@ -390,7 +404,9 @@ body {
     font-weight: bold;
 }
 
-.tag.sale { background: #e60000; }
+.tag.sale {
+    background: #e60000;
+}
 
 .info {
     padding: 20px;
@@ -437,4 +453,3 @@ body {
 .add-to-cart:hover {
     background: #333;
 }
-

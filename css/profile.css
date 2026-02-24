@@ -6,9 +6,12 @@
 }
 
 body {
-    background-color: #2b2b2b; /* gris */
+    background-color: #2b2b2b;
+    /* gris */
     color: #f2f2f2;
 }
+/* HEADER */
+
 
 header {
     background: #fff;
@@ -16,56 +19,23 @@ header {
     border-bottom: 1px solid #ddd;
 }
 
-.search-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    margin: 0 20px;
-}
-
-/* Input del buscador */
-#searchInput {
-    width: 500px;              /* Más grande */
-    max-width: 90%;            /* Que no se rompa en pantallas pequeñas */
-    padding: 12px 20px;        /* Alto cómodo */
-    border-radius: 50px;       /* Súper redondo */
-    border: 2px solid #e0e0e0;
-    font-size: 17px;
-    background-color: #f5f5f5;
-    outline: none;
-    transition: all 0.3s ease;
-}
-
-/* Cuando el usuario hace clic */
-#searchInput:focus {
-    background-color: #ffffff;
-    border-color: #000;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Placeholder más elegante */
-#searchInput::placeholder {
-    color: #888;
-}
-
-/* CONTENEDOR SUPERIOR */
 .header-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
 }
 
-/* LOGO */
 header h1 {
     font-size: 32px;
     color: #000;
 }
 
-/* MENU EN LÍNEA */
 .header_nav {
+
+    left: 0px;
     display: flex;
     gap: 30px;
+
 }
 
 .header_nav a {
@@ -79,46 +49,45 @@ header h1 {
     color: #555;
 }
 
-.header-search {
-    display: flex;
-    flex: 0 1 400px; /* El buscador no crecerá más de 400px */
-    margin: 0 20px;
-    border: 2px solid #333;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.header-search input {
-    flex-grow: 1;
-    border: none;
-    padding: 8px 12px;
-    outline: none;
-    font-size: 14px;
-}
-
-.header-search button {
-    background: #333;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.header-search button:hover {
-    background: #555;
-}
-
 .logo {
-    width: 80px;      
-    height: auto;     
+    width: 80px;
+    height: auto;
 }
-.social{
-    margin-bottom: 20px;
-     text-align: center;
-     margin-top: 60px;
-     
+
+.search-container {
+    flex: 1;
+    display: flex;
+    justify-content: left;
+    margin: 0 20px;
+    margin-left: 190px;
 }
+
+#searchInput {
+    width: 500px;
+    max-width: 90%;
+    padding: 12px 20px;
+    border-radius: 50px;
+    border: 2px solid #e0e0e0;
+    font-size: 16px;
+    background-color: #f5f5f5;
+    outline: none;
+    transition: all 0.3s ease;
+    color: #000;
+}
+
+#searchInput:focus {
+    background-color: #ffffff;
+    border-color: #000;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+}
+
+#searchInput::placeholder {
+    color: #888;
+}
+
+
+/* HEADER */
+
 
 
 
@@ -133,7 +102,7 @@ header h1 {
     padding-right: 30px;
     max-width: 1200px;
     margin: auto;
-    
+
 }
 
 /* ---------- PRODUCT CARD ---------- */
@@ -149,6 +118,7 @@ header h1 {
     transform: translateY(-6px);
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
 }
+
 /* ------- IMAGE ---------- */
 .image-box {
     position: relative;
@@ -249,11 +219,11 @@ header h1 {
 
 /* ---------- PRODUCTS HEADER ---------- */
 .topTitles {
-     display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-  margin-top: 30px;
+    margin-top: 30px;
 }
 
 
@@ -261,20 +231,22 @@ header h1 {
 /* ---------- TITLE ---------- */
 .main-container {
     display: grid;
-    grid-template-columns: 1fr 2fr; 
-    gap: 50px;                    
-    margin: auto;              /* Opcional: para que la línea sea larga aunque no haya datos */
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    margin: auto;
+    /* Opcional: para que la línea sea larga aunque no haya datos */
 }
 
 .left-column {
-     display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 .right-column {
-     display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Tus estilos de título se mantienen */
@@ -283,10 +255,11 @@ header h1 {
     font-weight: 800;
     color: #ffffff;
     white-space: nowrap;
-    margin-bottom: 10px;           /* Espacio debajo del título */
+    margin-bottom: 10px;
+    /* Espacio debajo del título */
 }
 
-.profilegrid{
+.profilegrid {
     display: grid;
     grid-template-columns: 1fr 2fr;
 }
@@ -296,10 +269,10 @@ header h1 {
     background-color: #555;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
-    
-    margin: auto; 
+
+    margin: auto;
 
     margin-top: 20px;
 }
@@ -311,7 +284,8 @@ input {
     border-radius: 4px;
     border: 1px solid #fc5b5b;
     box-sizing: border-box;
-    color: #000; /* Aseguramos que el texto del input sea legible */
+    color: #000;
+    /* Aseguramos que el texto del input sea legible */
 }
 
 button {
@@ -336,7 +310,7 @@ button:hover {
     display: none;
 }
 
-.no_prodcuts{
+.no_prodcuts {
     display: flex;
     justify-content: center;
     margin: 20px;

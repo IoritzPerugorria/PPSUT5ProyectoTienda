@@ -6,9 +6,12 @@
 }
 
 body {
-    background-color: #2b2b2b; /* gris */
+    background-color: #2b2b2b;
+    /* gris */
     color: #f2f2f2;
 }
+/* HEADER */
+
 
 header {
     background: #fff;
@@ -16,50 +19,47 @@ header {
     border-bottom: 1px solid #ddd;
 }
 
-/* CONTENEDOR SUPERIOR */
 .header-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* LOGO */
 header h1 {
     font-size: 32px;
     color: #000;
 }
 
-/* MENU EN LÍNEA */
-nav {
+.header_nav {
+
+    left: 0px;
     display: flex;
     gap: 30px;
+
 }
 
-nav a {
+.header_nav a {
     color: #000;
     text-decoration: none;
     font-size: 18px;
     font-weight: 600;
 }
 
-nav a:hover {
+.header_nav a:hover {
     color: #555;
 }
 
-/* buscador */
-/* Asegura que el header esté bien alineado */
-.header-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.logo {
+    width: 80px;
+    height: auto;
 }
 
-/* ===== BUSCADOR GLOBAL ===== */
 .search-container {
     flex: 1;
     display: flex;
-    justify-content: center;
+    justify-content: left;
     margin: 0 20px;
+    margin-left: 190px;
 }
 
 #searchInput {
@@ -72,7 +72,7 @@ nav a:hover {
     background-color: #f5f5f5;
     outline: none;
     transition: all 0.3s ease;
-    color: #000; /* Asegurar que el texto se lea */
+    color: #000;
 }
 
 #searchInput:focus {
@@ -86,16 +86,8 @@ nav a:hover {
 }
 
 
-.logo {
-    width: 80px;      /* cambia este valor si la quieres más pequeña */
-    height: auto;     /* mantiene proporción */
-}
-.social{
-    margin-bottom: 20px;
-     text-align: center;
-     margin-top: 60px;
-     
-}
+/* HEADER */
+
 
 
 
@@ -122,6 +114,7 @@ nav a:hover {
     transform: translateY(-6px);
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
 }
+
 /* ------- IMAGE ---------- */
 .image-box {
     position: relative;
@@ -272,6 +265,7 @@ nav a:hover {
         width: 100%;
     }
 }
+
 /* ---------- PRODUCTS HEADER ---------- */
 .products-header {
     width: 100%;
