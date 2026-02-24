@@ -14,6 +14,8 @@ INSTALACIÓN:
 
 -Por último, para acceder a la página, escribir en el buscador http://localhost:8080/PPSUT5ProyectoTienda/php/index.php.
 
+
+
 FUNCIONAMIENTO:
 
 Esta página web es una tienda de skates (Blashskate) en donde la página principal tiene arriba el menú, el inicio de sesión y donde ubicar la tienda en Pamplona. En la parte de "Comprar" puedes acceder a Skates con sus características y su precio. Además, puedes poner a vender tus propios skates, de segunda mano o nuevos. Tenemos la parte de registro, un formulario para nuevos usuarios que no tengan cuenta en la plataforma. Por último, tenemos la parte del perfil, en donde puedes modificar tus datos y gestionar los productos puestos a la venta.
