@@ -6,9 +6,12 @@
 }
 
 body {
-    background-color: #2b2b2b; /* gris */
+    background-color: #2b2b2b;
+    /* gris */
     color: #f2f2f2;
 }
+/* HEADER */
+
 
 header {
     background: #fff;
@@ -16,76 +19,75 @@ header {
     border-bottom: 1px solid #ddd;
 }
 
-/* CONTENEDOR SUPERIOR */
 .header-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* LOGO */
 header h1 {
     font-size: 32px;
     color: #000;
 }
 
-/* MENU EN LÍNEA */
-nav {
+.header_nav {
+
+    left: 0px;
     display: flex;
     gap: 30px;
+
 }
 
-nav a {
+.header_nav a {
     color: #000;
     text-decoration: none;
     font-size: 18px;
     font-weight: 600;
 }
 
-nav a:hover {
+.header_nav a:hover {
     color: #555;
 }
 
-.header-search {
-    display: flex;
-    flex: 0 1 400px; /* El buscador no crecerá más de 400px */
-    margin: 0 20px;
-    border: 2px solid #333;
-    border-radius: 4px;
-    overflow: hidden;
-}
-
-.header-search input {
-    flex-grow: 1;
-    border: none;
-    padding: 8px 12px;
-    outline: none;
-    font-size: 14px;
-}
-
-.header-search button {
-    background: #333;
-    color: white;
-    border: none;
-    padding: 8px 15px;
-    cursor: pointer;
-    transition: background 0.3s;
-}
-
-.header-search button:hover {
-    background: #555;
-}
-
 .logo {
-    width: 80px;      /* cambia este valor si la quieres más pequeña */
-    height: auto;     /* mantiene proporción */
+    width: 80px;
+    height: auto;
 }
-.social{
-    margin-bottom: 20px;
-     text-align: center;
-     margin-top: 60px;
-     
+
+.search-container {
+    flex: 1;
+    display: flex;
+    justify-content: left;
+    margin: 0 20px;
+    margin-left: 190px;
 }
+
+#searchInput {
+    width: 500px;
+    max-width: 90%;
+    padding: 12px 20px;
+    border-radius: 50px;
+    border: 2px solid #e0e0e0;
+    font-size: 16px;
+    background-color: #f5f5f5;
+    outline: none;
+    transition: all 0.3s ease;
+    color: #000;
+}
+
+#searchInput:focus {
+    background-color: #ffffff;
+    border-color: #000;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+}
+
+#searchInput::placeholder {
+    color: #888;
+}
+
+
+/* HEADER */
+
 
 
 
@@ -93,10 +95,14 @@ nav a:hover {
 .product {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    padding: 24px;
+    gap: 20px;
+    padding: 20px;
+
+    padding-left: 30px;
+    padding-right: 30px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: auto;
+
 }
 
 /* ---------- PRODUCT CARD ---------- */
@@ -112,6 +118,7 @@ nav a:hover {
     transform: translateY(-6px);
     box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12);
 }
+
 /* ------- IMAGE ---------- */
 .image-box {
     position: relative;
@@ -212,25 +219,34 @@ nav a:hover {
 
 /* ---------- PRODUCTS HEADER ---------- */
 .topTitles {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    padding-left: 120px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     margin-top: 30px;
 }
+
+
 
 /* ---------- TITLE ---------- */
 .main-container {
     display: grid;
-    grid-template-columns: 1fr 2fr; 
-    gap: 50px;                    
-    margin-top: 40px;             
-    padding: 0 40px;               /* Lo mueve un poco a la derecha */
-    min-height: 10vh;              /* Opcional: para que la línea sea larga aunque no haya datos */
+    grid-template-columns: 1fr 2fr;
+    gap: 50px;
+    margin: auto;
+    /* Opcional: para que la línea sea larga aunque no haya datos */
 }
 
 .left-column {
-    border-right: 1px solid #444;  /* LA LÍNEA VERTICAL HASTA ABAJO */
-    padding-right: 50px;           /* Espacio entre el contenido y la línea */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.right-column {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* Tus estilos de título se mantienen */
@@ -239,10 +255,11 @@ nav a:hover {
     font-weight: 800;
     color: #ffffff;
     white-space: nowrap;
-    margin-bottom: 10px;           /* Espacio debajo del título */
+    margin-bottom: 10px;
+    /* Espacio debajo del título */
 }
 
-.profilegrid{
+.profilegrid {
     display: grid;
     grid-template-columns: 1fr 2fr;
 }
@@ -252,10 +269,12 @@ nav a:hover {
     background-color: #555;
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     width: 300px;
-    /* Añadimos margin: auto para que se centre en el espacio restante */
-    margin: 70px; 
+
+    margin: auto;
+
+    margin-top: 20px;
 }
 
 input {
@@ -265,7 +284,8 @@ input {
     border-radius: 4px;
     border: 1px solid #fc5b5b;
     box-sizing: border-box;
-    color: #000; /* Aseguramos que el texto del input sea legible */
+    color: #000;
+    /* Aseguramos que el texto del input sea legible */
 }
 
 button {
@@ -290,38 +310,7 @@ button:hover {
     display: none;
 }
 
-/* ===== BUSCADOR GLOBAL ===== */
-.search-container {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    margin: 0 20px;
-}
-
-#searchInput {
-    width: 500px;
-    max-width: 90%;
-    padding: 12px 20px;
-    border-radius: 50px;
-    border: 2px solid #e0e0e0;
-    font-size: 16px;
-    background-color: #f5f5f5;
-    outline: none;
-    transition: all 0.3s ease;
-    color: #000; /* Asegurar que el texto se lea */
-}
-
-#searchInput:focus {
-    background-color: #ffffff;
-    border-color: #000;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
-}
-
-#searchInput::placeholder {
-    color: #888;
-}
-
-.no_prodcuts{
+.no_prodcuts {
     display: flex;
     justify-content: center;
     margin: 20px;
