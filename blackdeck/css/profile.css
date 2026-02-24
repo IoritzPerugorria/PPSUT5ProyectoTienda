@@ -214,16 +214,16 @@ nav a:hover {
 .topTitles {
     display: grid;
     grid-template-columns: 1fr 2fr;
-    padding-left: 120px; /* Ajusta este valor para moverlo a la derecha */
+    padding-left: 120px; 
     margin-top: 30px;
 }
 
 /* ---------- TITLE ---------- */
 .main-container {
     display: grid;
-    grid-template-columns: 1fr 2fr; /* Tu estructura original */
-    gap: 50px;                     /* Espacio entre columnas */
-    margin-top: 40px;              /* Lo baja respecto al header */
+    grid-template-columns: 1fr 2fr; 
+    gap: 50px;                    
+    margin-top: 40px;             
     padding: 0 40px;               /* Lo mueve un poco a la derecha */
     min-height: 10vh;              /* Opcional: para que la línea sea larga aunque no haya datos */
 }
@@ -255,7 +255,7 @@ nav a:hover {
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     width: 300px;
     /* Añadimos margin: auto para que se centre en el espacio restante */
-    margin: 50px; 
+    margin: 70px; 
 }
 
 input {
@@ -319,4 +319,10 @@ button:hover {
 
 #searchInput::placeholder {
     color: #888;
+}
+
+.no_prodcuts{
+    display: flex;
+    justify-content: center;
+    margin: 20px;
 }

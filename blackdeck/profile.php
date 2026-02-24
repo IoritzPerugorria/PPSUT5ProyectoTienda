@@ -81,7 +81,7 @@ if ($is_admin) {
         <nav>
             <a href="shop.php">Comprar</a>
             <a href="sell.php">Vender</a>
-            <a href="profile.php">Perfil (<?= $is_admin ? 'Admin' : 'Usuario' ?>)</a>
+            <a href="profile.php">Perfil (<?= htmlspecialchars($_SESSION['username']) ?>)</a>
         </nav>
     </div>
 </header>
@@ -149,7 +149,7 @@ if ($is_admin) {
                         </div>
                     <?php endwhile; ?>
                 <?php else: ?>
-                    <h3 style="color: white;">No tienes productos publicados.</h3>
+                    <h3 class="no_prodcuts" style="color: white;">No tienes productos publicados.</h3>
                 <?php endif; ?>
             </div>
         </section>

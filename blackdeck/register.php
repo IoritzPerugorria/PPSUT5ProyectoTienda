@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="shop.php">Comprar</a>
             <a href="sell.php">Vender</a>
             <?php if(isset($_SESSION['user_id'])): ?>
-                <a href="profile.php">Perfil</a>
+                <a href="profile.php"><?= htmlspecialchars($_SESSION['username']) ?></a>
             <?php else: ?>
                 <a href="register.php">Regístrate</a>
             <?php endif; ?>
