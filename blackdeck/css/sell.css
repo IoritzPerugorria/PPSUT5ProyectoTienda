@@ -103,7 +103,7 @@ nav a:hover {
 
 /* ===== FORM ===== */
 
-form {
+.sellform {
     display: flex;
     flex-direction: column;
     gap: 14px;

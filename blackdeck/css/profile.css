@@ -248,7 +248,7 @@ nav a:hover {
 }
 
 /* 4. FORMULARIO: Mantenemos tus estilos originales intactos */
-form {
+#registroForm {
     background-color: #555;
     padding: 20px;
     border-radius: 8px;
@@ -320,12 +320,3 @@ button:hover {
 #searchInput::placeholder {
     color: #888;
 }
-
-
-
-
-
-
-
-
-

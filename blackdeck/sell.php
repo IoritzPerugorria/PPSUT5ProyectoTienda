@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <div class="container">
     <div class="card">
         <h2>Vender tu skate</h2>
-        <form method="POST" action="sell.php" enctype="multipart/form-data">
+        <form class=sellform method="POST" action="sell.php" enctype="multipart/form-data">
             <input type="text" name="skate" placeholder="Nombre del skate" required>
             <br/>
             <input type="number" step="0.01" name="precio" placeholder="Precio (en Euros)" required>
