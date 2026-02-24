@@ -14,7 +14,11 @@ INSTALACIÓN:
 
 -Por último, para acceder a la página, escribir en el buscador http://localhost:8080/PPSUT5ProyectoTienda/php/index.php.
 
+USUARIOS:
 
+Correo Admin: admin@blashskate.com
+Correo Usuario Normal: prueba@blashskate.com
+contraseña (ambos): contrasena
 
 FUNCIONAMIENTO:
 
