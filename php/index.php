@@ -64,7 +64,7 @@ require 'db.php';
     <a href="https://x.com/blashskate_" target="_blank">X</a>
 </div>
 <div class="footer-column">
-            <h3>SEDE PAMPLONA</h3>
+            <h3>SEDE PAMPLONA🛹</h3>
             <div class="info-item">
                 <span class="icon">📍</span>
                 <p>Calle Amaya, 16<br>31004 Pamplona (Navarra)</p>
@@ -74,7 +74,7 @@ require 'db.php';
                 <p>Teléfono: 948 160 431</p>
             </div>
         </div>
-
+        <br/>
         <div class="footer-column">
             <h3>CONTACTO</h3>
             <div class="info-item">
