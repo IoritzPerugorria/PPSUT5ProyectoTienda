@@ -16,6 +16,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $descripcion = $conn->real_escape_string($_POST['descripcion']);
 
     // Subida de imagen
+
+    if ( !is_dir( "../uploads/" ) ) {
+        mkdir( "../uploads/" );       
+    }
+
     $target_dir = "../uploads/";
     $image_name = basename($_FILES["avatar"]["name"]);
     $target_file = $target_dir . time() . "_" . $image_name;
