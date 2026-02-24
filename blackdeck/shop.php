@@ -2,6 +2,17 @@
 session_start();
 require 'db.php';
 
+// --- LÓGICA: COMPRAR PRODUCTO ---
+if (isset($_GET['delete'])) {
+    $delete_id = (int)$_GET['delete'];
+    
+    $conn->query("DELETE FROM products WHERE id = $delete_id");
+
+    
+    header("Location: shop.php");
+    exit();
+}
+
 // Lógica de búsqueda y filtros
 $where = "1=1";
 if (isset($_GET['search']) && !empty($_GET['search'])) {
@@ -86,14 +97,16 @@ $result = $conn->query($sql);
                         <div class="image-box">
                             <img src="<?= htmlspecialchars($row['imagen']) ?>" alt="<?= htmlspecialchars($row['skate']) ?>">
                             <div class="tag" style="background: <?= $row['is_admin'] ? '#ec6161' : '#000' ?>;">
-                                <?= $row['is_admin'] ? 'OFICIAL' : 'USER' ?>
+                                <?= $row['is_admin'] ? 'NUEVO' : 'SEGUNDA MANO' ?>
                             </div>
                         </div>
                         <div class="info">
                             <p class="category"><?= htmlspecialchars($row['anchuras']) ?>"</p>
                             <h2 class="product-title"><?= htmlspecialchars($row['skate']) ?></h2>
                             <p class="price"><?= number_format($row['precio'], 2) ?> €</p>
-                            <button class="add-to-cart">COMPRAR</button>
+                            <a href="shop.php?delete=<?= $row['id'] ?>" onclick="return confirm('¿Seguro que deseas comprar este producto?')"  style="text-decoration: none;">
+                                <button class="add-to-cart">COMPRAR</button>
+                            </a>    
                         </div>
                     </div>
                 <?php endwhile; ?>

@@ -25,8 +25,20 @@ CREATE TABLE products (
 
 -- Usuario Administrador
 INSERT INTO users (nombre, apellidos, correo, telefono, password, is_admin) 
-VALUES ('Admin', 'Jefe', 'admin@blashskate.com', '600123456', 'contrasena', 1);
+VALUES ('Admin', 'Jefe', 'admin@blashskate.com', '600123456', '$2y$10$QjlIU/hovf/74ca1WiBM5OVcB4wPgvYV0iONVSkoEKIwi67cmmC5i', 1);
+
+-- las contraseñas son "contrasena"
 
 -- Usuario de Prueba normal
 INSERT INTO users (nombre, apellidos, correo, telefono, password, is_admin) 
-VALUES ('Prueba', 'Skater', 'prueba@blashskate.com', '600654321', 'contrasena', 0);
+VALUES ('Prueba', 'Skater', 'prueba@blashskate.com', '600654321', '$2y$10$QjlIU/hovf/74ca1WiBM5OVcB4wPgvYV0iONVSkoEKIwi67cmmC5i', 0);
+
+-- Productos por defecto
+INSERT INTO products (user_id, skate, precio, anchuras, imagen)
+VALUES (1, 'Skate Normal', 55, 8.0, 'img/skate1.jpg');
+
+INSERT INTO products (user_id, skate, precio, anchuras, imagen)
+VALUES (1, 'Skate Premium', 155, 8.25, 'img/skate2.jpg');
+
+INSERT INTO products (user_id, skate, precio, anchuras, imagen)
+VALUES (1, 'Skate Barato', 25, 7.75, 'img/skate3.jpg');
