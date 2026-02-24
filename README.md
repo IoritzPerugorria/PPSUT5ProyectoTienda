@@ -4,7 +4,7 @@ INSTALACIÓN:
 
 (Asegurate que el puerto de Apache sea 8080 en "Apache(httpd.conf)", y el de MySQL 3306 en "my.ini")
 
--Clonar el proyecto en la carpeta htdocs de Xampp (Deberia quedar asi: "C:/xampp/htdocs/PPSUT5ProyectoTienda/...").
+-Clonar el proyecto en la carpeta htdocs de Xampp (Debería quedar asi: "C:/xampp/htdocs/PPSUT5ProyectoTienda/...").
 
 -Iniciar los servicios de Apache y MySQL en Xampp.
 
