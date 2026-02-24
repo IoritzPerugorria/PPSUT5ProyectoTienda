@@ -68,7 +68,7 @@ if ($is_admin) {
 <head>
     <meta charset="UTF-8">
     <title>Perfil | Blashskate</title>
-    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="../css/profile.css">
 </head>
 <body>
 <header>

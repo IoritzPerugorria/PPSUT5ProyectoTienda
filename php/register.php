@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <title>Registro | Blashskate</title>
-    <link rel="stylesheet" href="css/register.css"> 
+    <link rel="stylesheet" href="../css/register.css"> 
 </head>
 <body>
     <header>

@@ -9,7 +9,7 @@ require 'db.php';
 <head>
     <meta charset="UTF-8">
     <title>Blashskate | Tienda de Skates</title>
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="../css/index.css">
 </head>
 <body>
 
