@@ -1,4 +1,5 @@
-/* 1. RESET GENERAL */
+/* GLOBAL */
+
 * {
     margin: 0;
     padding: 0;
@@ -6,15 +7,17 @@
     font-family: Arial, sans-serif;
 }
 
-/* 2. BODY: Cambiamos a column para que el header se quede arriba */
 body {
     background-color: #2b2b2b;
     color: #f2f2f2;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    /* Esto pone el header arriba y el form abajo */
 }
+
+/* GLOBAL */
+
+
+
+/* HEADER */
+
 
 header {
     background: #fff;
@@ -22,61 +25,23 @@ header {
     border-bottom: 1px solid #ddd;
 }
 
-.search-container {
-    flex: 1;
-    display: flex;
-    justify-content: left;
-    margin: 0 20px;
-    margin-left: 190px;
-}
-
-/* Input del buscador */
-#searchInput {
-    width: 500px;
-    /* Más grande */
-    max-width: 90%;
-    /* Que no se rompa en pantallas pequeñas */
-    padding: 12px 20px;
-    /* Alto cómodo */
-    border-radius: 50px;
-    /* Súper redondo */
-    border: 2px solid #e0e0e0;
-    font-size: 17px;
-    background-color: #f5f5f5;
-    outline: none;
-    transition: all 0.3s ease;
-}
-
-/* Cuando el usuario hace clic */
-#searchInput:focus {
-    background-color: #ffffff;
-    border-color: #000;
-    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
-}
-
-/* Placeholder más elegante */
-#searchInput::placeholder {
-    color: #888;
-}
-
-/* CONTENEDOR SUPERIOR */
 .header-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
-/* LOGO */
 header h1 {
     font-size: 32px;
     color: #000;
 }
 
-/* MENU EN LÍNEA */
 .header_nav {
+
+    left: 0px;
     display: flex;
     gap: 30px;
+
 }
 
 .header_nav a {
@@ -90,15 +55,84 @@ header h1 {
     color: #555;
 }
 
-
 .logo {
     width: 80px;
     height: auto;
 }
 
-.social {
-    margin-bottom: 20px;
-    text-align: center;
-    margin-top: 60px;
-
+.search-container {
+    flex: 1;
+    display: flex;
+    justify-content: left;
+    margin: 0 20px;
+    margin-left: 190px;
 }
+
+#searchInput {
+    width: 500px;
+    max-width: 90%;
+    padding: 12px 20px;
+    border-radius: 50px;
+    border: 2px solid #e0e0e0;
+    font-size: 16px;
+    background-color: #f5f5f5;
+    outline: none;
+    transition: all 0.3s ease;
+    color: #000;
+}
+
+#searchInput:focus {
+    background-color: #ffffff;
+    border-color: #000;
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+}
+
+#searchInput::placeholder {
+    color: #888;
+}
+
+
+/* HEADER */
+
+
+#registroForm {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 300px;
+    margin: auto; 
+    margin-top: 50px;
+}
+
+#registroForm input {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border-radius: 4px;
+    border: 1px solid #ea4e4e;
+    box-sizing: border-box;
+    color: #000; /* Aseguramos que el texto del input sea legible */
+}
+
+#registroForm button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    background-color: #000000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#registroForm button:hover {
+    background-color: #ea4e4e;
+}
+
+#registroForm h2 {
+    text-align: center;
+    color: #000;
+}
+
+
