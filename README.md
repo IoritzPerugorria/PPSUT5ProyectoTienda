@@ -1,6 +1,6 @@
 
 
-INSTALACION:
+INSTALACIÓN:
 
 (Asegurate que el puerto de Apache sea 8080 en "Apache(httpd.conf)", y el de MySQL 3306 en "my.ini")
 
@@ -8,7 +8,7 @@ INSTALACION:
 -Iniciar los servicios de Apache y MySQL en Xampp.
 -Acceder a phpmyadmin (http://localhost:8080/phpmyadmin).
 -En la pestaña "SQL", pegar el contenido del fichero "scriptdb.txt" y ejecutarlo para iniciar la base de datos.
--Por ultimo, para acceder a la pagina, escribir en el buscador http://localhost:8080/PPSUT5ProyectoTienda/php/index.php.
+-Por último, para acceder a la página, escribir en el buscador http://localhost:8080/PPSUT5ProyectoTienda/php/index.php.
 
 FUNCIONAMIENTO:
 
