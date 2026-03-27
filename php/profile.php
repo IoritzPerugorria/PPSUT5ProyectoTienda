@@ -45,19 +45,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_profile'])) {
         if ($stmt = $conn->prepare($sql)) {
             $stmt->bind_param("ssssi", $nombre, $apellidos, $telefono, $password_query, $user_id);
             $stmt->execute();
-            
+
             echo "<script>alert('¡Perfil actualizado correctamente!');</script>";
         } else {
             echo "<script>alert('Error al actualizar el perfil.');</script>";
         }
-    }
-    else{
+    } else {
         $sql = "UPDATE users SET nombre=?, apellidos=?, telefono=? WHERE id=?";
 
         if ($stmt = $conn->prepare($sql)) {
-            $stmt->bind_param("ssssi", $nombre, $apellidos, $telefono, $user_id);
+            $stmt->bind_param("sssi", $nombre, $apellidos, $telefono, $user_id);
             $stmt->execute();
-            
+
             echo "<script>alert('¡Perfil actualizado correctamente!');</script>";
         } else {
             echo "<script>alert('Error al actualizar el perfil.');</script>";
@@ -103,8 +102,6 @@ if ($is_admin) {
             </nav>
         </div>
     </header>
-
-
 
     <div class="main-container">
         <div class="left-column">
@@ -173,8 +170,8 @@ if ($is_admin) {
                             </div>
                         <?php endwhile; ?>
                     <?php else: ?>
-                        <div class="product-card">
-                            <h3 class="no_products" style="color: black;">No tienes productos publicados.</h3>
+                        <div class="no-results-container">
+                            <h3 style="color: white;">No tienes productos publicados.</h3>
                         </div>
                     <?php endif; ?>
                 </div>

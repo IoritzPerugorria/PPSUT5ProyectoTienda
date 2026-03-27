@@ -319,3 +319,29 @@ button:hover {
     
     margin: 20px;
 }
+
+.empty-message {
+    grid-column: 1 / -1; 
+    text-align: center;
+    padding: 50px 20px;
+    width: 100%;
+    color: #f2f2f2; 
+    font-size: 1.2rem;
+}
+
+/* Forzar a que el mensaje ocupe todo el ancho del grid */
+.no-results-container {
+    grid-column: 1 / -1; 
+    display: block;
+    width: 100%;
+    text-align: center; /* Centra el texto horizontalmente */
+    padding: 60px 20px;
+    margin: 0 auto;
+}
+
+.no-results-container h3, 
+.no-results-container p {
+    color: #ffffff; /* Ajusta el color según tu fondo gris */
+    font-size: 1.5rem;
+    font-weight: bold;
+}

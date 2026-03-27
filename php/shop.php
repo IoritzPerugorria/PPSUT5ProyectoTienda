@@ -16,32 +16,52 @@ if (isset($_GET['delete'])) {
 }
 
 // Lógica de búsqueda y filtros
-$where = "1=1";
-if (isset($_GET['search']) && !empty($_GET['search'])) {
-    $search = $conn->real_escape_string($_GET['search']);
-    $where .= " AND p.skate LIKE '%$search%'";
+
+$conditions = [];
+$params = [];
+$types = "";
+
+if (isset($_GET['search']) && !empty(trim($_GET['search']))) {
+    $conditions[] = "p.skate LIKE ?";
+
+    $searchParam = "%" . trim($_GET['search']) . "%";
+
+    $params[] = $searchParam;
+    $types .= "s";
 }
 
-if (isset($_GET['sizes']) && is_array($_GET['sizes'])) {
-    $sizes = array_map(function ($size) use ($conn) {
-        return "'" . $conn->real_escape_string($size) . "'";
-    }, $_GET['sizes']);
+if (isset($_GET['sizes']) && is_array($_GET['sizes']) && count($_GET['sizes']) > 0) {
+    $placeholders = [];
 
-    $where .= " AND p.anchuras IN (" . implode(",", $sizes) . ")";
+    foreach ($_GET['sizes'] as $size) {
+        $placeholders[] = "?";
+        $params[] = $size;
+        $types .= "s";
+    }
+    $conditions[] = "p.anchuras IN (" . implode(",", $placeholders) . ")";
 }
 
-// Obtener productos y saber si el creador es admin
-$sql = "SELECT p.*, u.is_admin FROM products p 
+$whereClause = count($conditions) > 0 ? implode(" AND ", $conditions) : "1=1";
+
+$sql = "SELECT p.*, u.is_admin 
+        FROM products p 
         JOIN users u ON p.user_id = u.id 
-        WHERE $where 
+        WHERE $whereClause 
         ORDER BY p.created_at DESC";
 
+$stmt = $conn->prepare($sql);
 
-//$stmt = $conn->prepare($sql);
-//$stmt->bind_param("s", $where);
-//$stmt->execute();
-//$result = $stmt->get_result();
-$result = $conn->query($sql);
+if (!$stmt) {
+    die("Error en la preparación de la consulta");
+}
+
+if (!empty($params)) {
+    $stmt->bind_param($types, ...$params);
+}
+
+$stmt->execute();
+$result = $stmt->get_result();
+$stmt->close();
 
 
 ?>
@@ -127,7 +147,9 @@ $result = $conn->query($sql);
                         </div>
                     <?php endwhile; ?>
                 <?php else: ?>
-                    <p>No se encontraron productos.</p>
+                    <div class="no-results-container">
+                        <p>No se encontraron productos.</p>
+                    </div>
                 <?php endif; ?>
             </div>
         </section>
