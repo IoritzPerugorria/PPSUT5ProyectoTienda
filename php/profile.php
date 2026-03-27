@@ -36,20 +36,35 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_profile'])) {
     $apellidos = $conn->real_escape_string($_POST['apellidos']);
     $telefono = $conn->real_escape_string($_POST['telefono']);
 
-    // Si escribió una nueva contraseña, la actualizamos
     $password_query = "";
     if (!empty($_POST['password'])) {
         $hashed_password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-        $password_query = ", password = '$hashed_password'";
+
+        $sql = "UPDATE users SET nombre=?, apellidos=?, telefono=?, password=? WHERE id=?";
+
+        if ($stmt = $conn->prepare($sql)) {
+            $stmt->bind_param("ssssi", $nombre, $apellidos, $telefono, $password_query, $user_id);
+            $stmt->execute();
+            
+            echo "<script>alert('¡Perfil actualizado correctamente!');</script>";
+        } else {
+            echo "<script>alert('Error al actualizar el perfil.');</script>";
+        }
+    }
+    else{
+        $sql = "UPDATE users SET nombre=?, apellidos=?, telefono=? WHERE id=?";
+
+        if ($stmt = $conn->prepare($sql)) {
+            $stmt->bind_param("ssssi", $nombre, $apellidos, $telefono, $user_id);
+            $stmt->execute();
+            
+            echo "<script>alert('¡Perfil actualizado correctamente!');</script>";
+        } else {
+            echo "<script>alert('Error al actualizar el perfil.');</script>";
+        }
     }
 
-    $sql = "UPDATE users SET nombre='$nombre', apellidos='$apellidos', telefono='$telefono' $password_query WHERE id=$user_id";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "<script>alert('¡Perfil actualizado correctamente!');</script>";
-    } else {
-        echo "<script>alert('Error al actualizar el perfil.');</script>";
-    }
+    $stmt->close();
 }
 
 // --- OBTENER DATOS ACTUALIZADOS ---
@@ -77,7 +92,7 @@ if ($is_admin) {
         <div class="header-top">
             <a href="index.php"><img src="../img/logo.jpg" alt="Blashskate Logo" class="logo"></a>
             <form class="search-container" method="GET" action="shop.php">
-                <input type="text" id="searchInput" name="search" placeholder="Buscar productos..."
+                <input type="text" id="searchInput" name="search" maxlength="100" placeholder="Buscar productos..."
                     value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
                 <button type="submit" style="display:none;">Buscar</button>
             </form>
@@ -158,7 +173,9 @@ if ($is_admin) {
                             </div>
                         <?php endwhile; ?>
                     <?php else: ?>
-                        <h3 class="no_prodcuts" style="color: white;">No tienes productos publicados.</h3>
+                        <div class="product-card">
+                            <h3 class="no_products" style="color: black;">No tienes productos publicados.</h3>
+                        </div>
                     <?php endif; ?>
                 </div>
             </section>

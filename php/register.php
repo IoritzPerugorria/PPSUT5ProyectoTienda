@@ -3,27 +3,51 @@ session_start();
 require 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $nombre = $conn->real_escape_string($_POST['nombre']);
-    $apellidos = $conn->real_escape_string($_POST['apellidos']);
-    $correo = $conn->real_escape_string($_POST['correo']);
-    $telefono = $conn->real_escape_string($_POST['telefono']);
-    $password = $_POST['password'];
-    $confirm_password = $_POST['confirm_password'];
+    $nombre = substr($conn->real_escape_string($_POST['nombre']), 0, 100);
+    $apellidos = substr($conn->real_escape_string($_POST['apellidos']), 0, 100);
+    $correo = substr($conn->real_escape_string($_POST['correo']), 0, 150);
+    $telefono = substr($conn->real_escape_string($_POST['telefono']), 0, 20);
+    $password = substr($conn->real_escape_string($_POST['password']), 0, 255);
+    $confirm_password = substr($conn->real_escape_string($_POST['confirm_password']), 0, 255);
 
     if ($password === $confirm_password) {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
 
-        $sql = "INSERT INTO users (nombre, apellidos, correo, telefono, password) VALUES ('$nombre', '$apellidos', '$correo', '$telefono', '$hashed_password')";
+        $email_query = $conn->query("SELECT * FROM users");
 
-        if ($conn->query($sql) === TRUE) {
-            echo "<script>alert('Registro exitoso. Inicia sesión.'); window.location.href='index.php';</script>";
-        } else {
-            echo "<script>alert('Error: " . $conn->error . "');</script>";
+        $stopQuery = FALSE;
+
+        if ($email_query->num_rows > 0) {
+            while ($row = $email_query->fetch_assoc()) {
+                $correoExistente = htmlspecialchars($row['correo']);
+                if ($correoExistente == $correo) {
+                    echo "<script>alert('Error: No se ha podido registrar al usuario');</script>";
+                    $stopQuery = TRUE;
+                    break;
+                }
+            }
         }
+        
+        if (!$stopQuery) {
+            $sql = "INSERT INTO users (nombre, apellidos, correo, telefono, password) VALUES (?, ?, ?, ?, ?)";
+
+            if ($stmt = $conn->prepare($sql)) { //Cambiar formato de los mensajes (quitar echo)
+
+                $stmt->bind_param("sssss", $nombre, $apellidos, $correo, $telefono, $hashed_password);
+                $stmt->execute();
+
+                echo "<script>alert('Registro exitoso. Inicia sesión.'); window.location.href='index.php';</script>";
+            } else {
+                echo "<script>alert('Error: Ha sucedido un error');</script>";
+            }
+            $stmt->close();
+        }
+        
     } else {
         echo "<script>alert('Las contraseñas no coinciden.');</script>";
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -40,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="index.php"><img src="../img/logo.jpg" alt="Blashskate Logo" class="logo"></a>
 
             <form class="search-container" method="GET" action="shop.php">
-                <input type="text" id="searchInput" name="search" placeholder="Buscar productos..."
+                <input type="text" id="searchInput" name="search" maxlength="100" placeholder="Buscar productos..."
                     value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
                 <button type="submit" style="display:none;">Buscar</button>
             </form>
@@ -58,12 +82,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </header>
     <form id="registroForm" method="POST" action="register.php">
         <h2>Registrarse</h2>
-        <input type="text" name="nombre" placeholder="Nombre" required>
-        <input type="text" name="apellidos" placeholder="Apellidos" required>
-        <input type="email" name="correo" placeholder="Correo" required>
-        <input type="tel" name="telefono" placeholder="Número de teléfono" required>
-        <input type="password" name="password" id="password" placeholder="Contraseña" required>
-        <input type="password" name="confirm_password" id="confirm_password" placeholder="Repetir contraseña" required>
+        <input type="text" name="nombre" placeholder="Nombre" maxlength="100" required>
+        <input type="text" name="apellidos" placeholder="Apellidos" maxlength="100" required>
+        <input type="email" name="correo" placeholder="Correo" maxlength="150" required>
+        <input type="tel" name="telefono" placeholder="Número de teléfono" maxlength="20" required>
+        <input type="password" name="password" id="password" placeholder="Contraseña" maxlength="255" required>
+        <input type="password" name="confirm_password" id="confirm_password" placeholder="Repetir contraseña" maxlength="255" required>
         <button type="submit">Registrarse</button>
     </form>
 </body>

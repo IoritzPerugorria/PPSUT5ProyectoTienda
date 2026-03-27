@@ -6,8 +6,10 @@ require 'db.php';
 if (isset($_GET['delete'])) {
     $delete_id = (int) $_GET['delete'];
 
-    $conn->query("DELETE FROM products WHERE id = $delete_id");
-
+    $sql = "DELETE FROM products WHERE id = ?";
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $delete_id);
+    $stmt->execute();
 
     header("Location: shop.php");
     exit();
@@ -33,7 +35,15 @@ $sql = "SELECT p.*, u.is_admin FROM products p
         JOIN users u ON p.user_id = u.id 
         WHERE $where 
         ORDER BY p.created_at DESC";
+
+
+//$stmt = $conn->prepare($sql);
+//$stmt->bind_param("s", $where);
+//$stmt->execute();
+//$result = $stmt->get_result();
 $result = $conn->query($sql);
+
+
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -50,7 +60,7 @@ $result = $conn->query($sql);
             <a href="index.php"><img src="../img/logo.jpg" alt="Blashskate Logo" class="logo"></a>
 
             <form class="search-container" method="GET" action="shop.php">
-                <input type="text" id="searchInput" name="search" placeholder="Buscar productos..."
+                <input type="text" id="searchInput" name="search" maxlength="100" placeholder="Buscar productos..."
                     value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
                 <button type="submit" style="display:none;">Buscar</button>
             </form>

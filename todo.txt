@@ -1,0 +1,13 @@
+- Ficha 11
+    -Añadir comprobaciones
+    -Evitar que muestre mensaje de error en el execute si falla
+    
+- Ficha 4
+    -realizar pruebas y documentar
+- Ficha 9
+- Ficha 1
+- Ficha 6
+
+- Cambiar todos los mensajes de la aplicacion, remplazar echos por mensajes y cuadros propios en la web
+- en el registro, a veces al refrescar sale un "confirmar el reenvio del formulario"
+- En "Lógica de búsqueda y filtros" de shop.php (linea 18), solucionar la mierda de codigo que hay con el where.

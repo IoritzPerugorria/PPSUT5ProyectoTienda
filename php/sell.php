@@ -9,10 +9,10 @@ if (!isset($_SESSION['user_id'])) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $user_id = $_SESSION['user_id'];
+    $user_id = $conn->real_escape_string($_SESSION['user_id']);
     $skate = $conn->real_escape_string($_POST['skate']);
-    $precio = $_POST['precio'];
-    $anchura = $_POST['anchuras'];
+    $precio = $conn->real_escape_string($_POST['precio']);
+    $anchura = $conn->real_escape_string($_POST['anchuras']);
     $descripcion = $conn->real_escape_string($_POST['descripcion']);
 
     // Subida de imagen
@@ -27,10 +27,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file)) {
         $sql = "INSERT INTO products (user_id, skate, precio, anchuras, descripcion, imagen) 
-                VALUES ('$user_id', '$skate', '$precio', '$anchura', '$descripcion', '$target_file')";
-        if ($conn->query($sql) === TRUE) {
+                VALUES (?, '?, ?, ?, ?, ?)";
+
+        if ($stmt = $conn->prepare($sql)) {
+            $stmt->bind_param("isdsss", $user_id, $skate, $precio, $anchura, $descripcion, $target_file);
+            $stmt->execute();
             echo "<script>alert('Producto subido exitosamente'); window.location.href='profile.php';</script>";
         }
+        $stmt->close();
     } else {
         echo "<script>alert('Error al subir la imagen');</script>";
     }
@@ -51,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="index.php"><img src="../img/logo.jpg" alt="Blashskate Logo" class="logo"></a>
 
             <form class="search-container" method="GET" action="shop.php">
-                <input type="text" id="searchInput" name="search" placeholder="Buscar productos..."
+                <input type="text" id="searchInput" name="search" maxlength="100" placeholder="Buscar productos..."
                     value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
                 <button type="submit" style="display:none;">Buscar</button>
             </form>

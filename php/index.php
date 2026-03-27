@@ -20,7 +20,7 @@ require 'db.php';
             <a href="index.php"><img src="../img/logo.jpg" alt="Blashskate Logo" class="logo"></a>
 
             <form class="search-container" method="GET" action="shop.php">
-                <input type="text" id="searchInput" name="search" placeholder="Buscar productos..."
+                <input type="text" id="searchInput" name="search" maxlength="100" placeholder="Buscar productos..."
                     value="<?= isset($_GET['search']) ? htmlspecialchars($_GET['search']) : '' ?>">
                 <button type="submit" style="display:none;">Buscar</button>
             </form>
