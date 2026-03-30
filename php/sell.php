@@ -2,41 +2,78 @@
 session_start();
 require 'db.php';
 
-// Redirigir si no está logueado
 if (!isset($_SESSION['user_id'])) {
     echo "<script>alert('Debes iniciar sesión para vender'); window.location.href='index.php';</script>";
     exit();
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $user_id = $conn->real_escape_string($_SESSION['user_id']);
-    $skate = $conn->real_escape_string($_POST['skate']);
-    $precio = $conn->real_escape_string($_POST['precio']);
-    $anchura = $conn->real_escape_string($_POST['anchuras']);
-    $descripcion = $conn->real_escape_string($_POST['descripcion']);
+    $user_id = $_SESSION['user_id'];
+    $skate = $_POST['skate'];
+    $precio = $_POST['precio'];
+    $anchura = $_POST['anchuras'];
+    $descripcion = $_POST['descripcion'];
 
-    // Subida de imagen
+    
+    $upload_success = false;
+    $target_file = "";
+    $max_file_size = 5 * 1024 * 1024;
+    $allowed_mime_types = ['image/jpeg', 'image/png', 'image/webp'];
+    $allowed_extensions = ['jpg', 'jpeg', 'png', 'webp'];
 
-    if ( !is_dir( "../uploads/" ) ) {
-        mkdir( "../uploads/" );       
+    if (isset($_FILES['avatar']) && $_FILES['avatar']['error'] === UPLOAD_ERR_OK) {
+        $file_tmp_path = $_FILES['avatar']['tmp_name'];
+        $file_name = $_FILES['avatar']['name'];
+        $file_size = $_FILES['avatar']['size'];
+
+        if ($file_size > $max_file_size) {
+            echo "<script>alert('Error: El archivo supera el límite de 5MB.');</script>";
+        } else {
+            $finfo = finfo_open(FILEINFO_MIME_TYPE);
+            $mime_type = finfo_file($finfo, $file_tmp_path);
+            $finfo = null;
+
+            $file_extension = strtolower(pathinfo($file_name, PATHINFO_EXTENSION));
+
+            if (!in_array($mime_type, $allowed_mime_types) || !in_array($file_extension, $allowed_extensions)) {
+                echo "<script>alert('Error: El archivo debe ser una imagen real (JPG, PNG, WEBP).');</script>";
+            } else {
+                $new_file_name = bin2hex(random_bytes(16)) . '.' . $file_extension;
+                
+                $target_dir = "../uploads/";
+                if (!is_dir($target_dir)) {
+                    mkdir($target_dir, 0755, true);       
+                }
+
+                $target_file = $target_dir . $new_file_name;
+
+                if (move_uploaded_file($file_tmp_path, $target_file)) {
+                    $upload_success = true;
+                } else {
+                    echo "<script>alert('Error del servidor al guardar la imagen.');</script>";
+                }
+            }
+        }
+    } else {
+        echo "<script>alert('Error en la subida del archivo o no se seleccionó ninguna imagen.');</script>";
     }
 
-    $target_dir = "../uploads/";
-    $image_name = basename($_FILES["avatar"]["name"]);
-    $target_file = $target_dir . time() . "_" . $image_name;
-
-    if (move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file)) {
+    if ($upload_success) {
         $sql = "INSERT INTO products (user_id, skate, precio, anchuras, descripcion, imagen) 
-                VALUES (?, '?, ?, ?, ?, ?)";
+                VALUES (?, ?, ?, ?, ?, ?)";
 
         if ($stmt = $conn->prepare($sql)) {
             $stmt->bind_param("isdsss", $user_id, $skate, $precio, $anchura, $descripcion, $target_file);
-            $stmt->execute();
-            echo "<script>alert('Producto subido exitosamente'); window.location.href='profile.php';</script>";
+            
+            if($stmt->execute()) {
+                echo "<script>alert('Producto subido exitosamente'); window.location.href='profile.php';</script>";
+            } else {
+                echo "<script>alert('Error al guardar en la base de datos.');</script>";
+            }
+            $stmt->close();
+        } else {
+            echo "<script>alert('Error interno en la base de datos.');</script>";
         }
-        $stmt->close();
-    } else {
-        echo "<script>alert('Error al subir la imagen');</script>";
     }
 }
 ?>
@@ -74,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <div class="container">
         <div class="card">
             <h2>Vender tu skate</h2>
-            <form class=sellform method="POST" action="sell.php" enctype="multipart/form-data">
+            <form class="sellform" method="POST" action="sell.php" enctype="multipart/form-data">
                 <input type="text" name="skate" placeholder="Nombre del skate" required>
                 <br />
                 <input type="number" step="0.01" name="precio" placeholder="Precio (en Euros)" required>
@@ -89,13 +126,35 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <br />
                 <textarea name="descripcion" placeholder="Descripción" required></textarea>
                 <br />
-                <label for="avatar">Suba una foto del producto</label>
+                <label for="avatar">Suba una foto del producto (Máx. 5MB)</label>
                 <input type="file" id="avatar" name="avatar" accept=".jpg, .jpeg, .png, .webp" required>
                 <br />
                 <button type="submit">Subir skate</button>
             </form>
         </div>
     </div>
+
+    <script>
+        document.getElementById('avatar').addEventListener('change', function(e) {
+            const file = this.files[0];
+            
+            if (file) {
+                const validTypes = ['image/jpeg', 'image/png', 'image/webp'];
+                if (!validTypes.includes(file.type)) {
+                    alert("Por favor, sube solo formatos de imagen válidos (JPG, PNG, WEBP).");
+                    this.value = '';
+                    return;
+                }
+
+                const maxSize = 5 * 1024 * 1024;
+                if (file.size > maxSize) {
+                    alert("El archivo es demasiado grande. El límite es de 5MB.");
+                    this.value = '';
+                    return;
+                }
+            }
+        });
+    </script>
 </body>
 
 </html>
