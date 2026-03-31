@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if (!$stopQuery) {
             $sql = "INSERT INTO users (nombre, apellidos, correo, telefono, password) VALUES (?, ?, ?, ?, ?)";
 
-            if ($stmt = $conn->prepare($sql)) { //Cambiar formato de los mensajes (quitar echo)
+            if ($stmt = $conn->prepare($sql)) {
 
                 $stmt->bind_param("sssss", $nombre, $apellidos, $correo, $telefono, $hashed_password);
                 $stmt->execute();

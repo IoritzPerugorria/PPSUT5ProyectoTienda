@@ -16,11 +16,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         $user = $result->fetch_assoc();
         if (password_verify($password, $user['password'])) {
-            $_SESSION['user_id'] = $user['id'];
-            $_SESSION['username'] = $user['nombre'];
-            $_SESSION['is_admin'] = $user['is_admin'];
-            header("Location: profile.php");
-            exit();
+            if (session_regenerate_id(true)) {
+                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['username'] = $user['nombre'];
+                $_SESSION['is_admin'] = $user['is_admin'];
+                header("Location: profile.php");
+                exit();
+            } else {
+                echo "<script>alert('Ha sucedido un error'); window.location.href='index.php';</script>";
+            }
         } else {
             echo "<script>alert('Credenciales incorrectas'); window.location.href='index.php';</script>";
         }

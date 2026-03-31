@@ -2,13 +2,12 @@
 session_start();
 require 'db.php';
 
-// MODIFICADO: Token CSRF
+// Token CSRF
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // MODIFICADO: Verificación CSRF antes de procesar
     if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
         die("Error de validación de seguridad (CSRF).");
     }

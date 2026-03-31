@@ -2,7 +2,6 @@
 session_start();
 require 'db.php';
 
-// MODIFICADO: Generación global del token CSRF si no existe
 if (empty($_SESSION['csrf_token'])) {
     $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
@@ -15,8 +14,8 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 $is_admin = $_SESSION['is_admin'];
 
-// --- LÓGICA: CERRAR SESIÓN ---
-// MODIFICADO: Convertido a POST y con verificación CSRF
+// Cerrar sesion
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
     if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
         die("Error de validación de seguridad (CSRF).");
@@ -26,8 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['logout'])) {
     exit();
 }
 
-// --- LÓGICA: BORRAR PRODUCTO ---
-// MODIFICADO: Convertido a POST, añadido CSRF y uso de Prepared Statements contra Inyecciones SQL
+// Borrar producto
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
     if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
         die("Error de validación de seguridad (CSRF).");
@@ -48,9 +47,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
     exit();
 }
 
-// --- LÓGICA: ACTUALIZAR PERFIL ---
+// Actualizar perfil
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update_profile'])) {
-    // MODIFICADO: Verificación CSRF antes de actualizar
     if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
         die("Error de validación de seguridad (CSRF).");
     }
