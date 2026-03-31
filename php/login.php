@@ -3,8 +3,8 @@ session_start();
 require 'db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $email = $conn->real_escape_string($_POST['email']);
-    $password = $_POST['password'];
+    $email = substr($_POST['email'], 0, 150);
+    $password = substr($_POST['password'], 0, 255);
 
     $sql = "SELECT * FROM users WHERE correo = ?";
 

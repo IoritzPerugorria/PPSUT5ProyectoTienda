@@ -39,7 +39,7 @@ INSERT INTO products (user_id, skate, precio, anchuras, imagen)
 VALUES (1, 'Skate Normal', 55, 8.0, '../img/skate1.jpg');
 
 INSERT INTO products (user_id, skate, precio, anchuras, imagen)
-VALUES (1, 'Skate Premium', 155, 8.25, '../img/skate2.jpg');
+VALUES (1, 'Skate Premium', 155, 8.25, '../img/skate4.jpg');
 
 INSERT INTO products (user_id, skate, precio, anchuras, imagen)
-VALUES (1, 'Skate Barato', 25, 7.75, '../img/skate3.jpg');
+VALUES (1, 'Skate Barato', 25, 7.75, '../img/skate5.jpg');

@@ -7,7 +7,7 @@ if (empty($_SESSION['csrf_token'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
-    
+
     if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
         die("Error de validación de seguridad (CSRF).");
     }
@@ -24,17 +24,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
     $stmt_img->bind_param("i", $delete_id);
     $stmt_img->execute();
     $res_img = $stmt_img->get_result();
-    
+
     if ($product = $res_img->fetch_assoc()) {
         $image_path = $product['imagen'];
-        
+
         $sql = "DELETE FROM products WHERE id = ?";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("i", $delete_id);
-        
+
         if ($stmt->execute()) {
             if (!empty($image_path) && file_exists($image_path)) {
-                unlink($image_path);
+                //Esto eliminaria la imagen, lo cual esta bien, pero tampoco queremos descargar las imagenes de nuevo para probar la aplicacion...
+                //unlink($image_path); 
             }
             echo "<script>alert('Compra realizada con éxito'); window.location.href='shop.php';</script>";
         }
@@ -73,7 +74,9 @@ $sql = "SELECT p.*, u.is_admin
         ORDER BY p.created_at DESC";
 
 $stmt = $conn->prepare($sql);
-if (!$stmt) { die("Error en la consulta"); }
+if (!$stmt) {
+    die("Error en la consulta");
+}
 
 if (!empty($params)) {
     $stmt->bind_param($types, ...$params);
@@ -86,12 +89,14 @@ $stmt->close();
 
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <title>BlackDeck | Tienda</title>
     <link rel="stylesheet" href="../css/shop.css">
     <link rel="stylesheet" href="../css/common.css">
 </head>
+
 <body>
     <header>
         <div class="header-top">
@@ -155,7 +160,8 @@ $stmt->close();
                                 <p class="category"><?= htmlspecialchars($row['anchuras']) ?>"</p>
                                 <h2 class="product-title"><?= htmlspecialchars($row['skate']) ?></h2>
                                 <p class="price"><?= number_format($row['precio'], 2) ?> €</p>
-                                <form method="POST" action="shop.php" onsubmit="return confirm('¿Seguro que deseas comprar este producto?')">
+                                <form method="POST" action="shop.php"
+                                    onsubmit="return confirm('¿Seguro que deseas comprar este producto?')">
                                     <input type="hidden" name="delete_id" value="<?= $row['id'] ?>">
                                     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
                                     <button type="submit" class="add-to-cart">COMPRAR</button>
@@ -172,5 +178,5 @@ $stmt->close();
         </section>
     </main>
 </body>
-</html>
 
+</html>

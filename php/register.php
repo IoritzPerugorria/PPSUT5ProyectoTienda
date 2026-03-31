@@ -10,12 +10,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
         die("Error de validación de seguridad (CSRF).");
     }
-    $nombre = substr($conn->real_escape_string($_POST['nombre']), 0, 100);
-    $apellidos = substr($conn->real_escape_string($_POST['apellidos']), 0, 100);
-    $correo = substr($conn->real_escape_string($_POST['correo']), 0, 150);
-    $telefono = substr($conn->real_escape_string($_POST['telefono']), 0, 20);
-    $password = substr($conn->real_escape_string($_POST['password']), 0, 255);
-    $confirm_password = substr($conn->real_escape_string($_POST['confirm_password']), 0, 255);
+    $nombre = substr($conn->$_POST['nombre'], 0, 100);
+    $apellidos = substr($conn->$_POST['apellidos'], 0, 100);
+    $correo = substr($conn->$_POST['correo'], 0, 150);
+    $telefono = substr($conn->$_POST['telefono'], 0, 20);
+    $password = substr($conn->$_POST['password'], 0, 255);
+    $confirm_password = substr($conn->$_POST['confirm_password'], 0, 255);
 
     if ($password === $confirm_password) {
         $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 }
             }
         }
-        
+
         if (!$stopQuery) {
             $sql = "INSERT INTO users (nombre, apellidos, correo, telefono, password) VALUES (?, ?, ?, ?, ?)";
 
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
             $stmt->close();
         }
-        
+
     } else {
         echo "<script>alert('Las contraseñas no coinciden.');</script>";
     }
@@ -63,11 +63,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Blashskate</title>
     <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/sell.css"> </head>
+    <link rel="stylesheet" href="../css/sell.css">
+</head>
 
 <form method="POST" action="...">
     <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
-    </form>
+</form>
 </head>
 
 <body>
@@ -99,7 +100,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="email" name="correo" placeholder="Correo" maxlength="150" required>
         <input type="tel" name="telefono" placeholder="Número de teléfono" maxlength="20" required>
         <input type="password" name="password" id="password" placeholder="Contraseña" maxlength="255" required>
-        <input type="password" name="confirm_password" id="confirm_password" placeholder="Repetir contraseña" maxlength="255" required>
+        <input type="password" name="confirm_password" id="confirm_password" placeholder="Repetir contraseña"
+            maxlength="255" required>
         <button type="submit">Registrarse</button>
     </form>
 </body>

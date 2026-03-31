@@ -58,6 +58,16 @@ require 'db.php';
                 ¿No tienes cuenta?
                 <a href="register.php">Regístrate</a>
             </p>
+            <br/>
+            <p>
+                Usuario: prueba@blashskate.com
+            </p>
+            <p>
+                Admin: admin@blashskate.com
+            </p>
+            <p>
+                Contraseñas: contrasena
+            </p>
         </div>
         <div class="social">
             <h2>Nuestras redes sociales</h2>

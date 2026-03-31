@@ -13,12 +13,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Error de validación de seguridad (CSRF).");
     }
     $user_id = $_SESSION['user_id'];
-    $skate = $_POST['skate'];
-    $precio = $_POST['precio'];
-    $anchura = $_POST['anchuras'];
-    $descripcion = $_POST['descripcion'];
+    $skate = substr($_POST['skate'], 0, 150);
+    $precio = substr($_POST['precio'], 0, 10);
+    $anchura = substr($_POST['anchuras'], 0, 20);
+    $descripcion = substr($_POST['descripcion'], 0, 300);
 
-    
+
     $upload_success = false;
     $target_file = "";
     $max_file_size = 5 * 1024 * 1024;
@@ -43,10 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 echo "<script>alert('Error: El archivo debe ser una imagen real (JPG, PNG, WEBP).');</script>";
             } else {
                 $new_file_name = bin2hex(random_bytes(16)) . '.' . $file_extension;
-                
+
                 $target_dir = "../uploads/";
                 if (!is_dir($target_dir)) {
-                    mkdir($target_dir, 0755, true);       
+                    mkdir($target_dir, 0755, true);
                 }
 
                 $target_file = $target_dir . $new_file_name;
@@ -68,8 +68,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         if ($stmt = $conn->prepare($sql)) {
             $stmt->bind_param("isdsss", $user_id, $skate, $precio, $anchura, $descripcion, $target_file);
-            
-            if($stmt->execute()) {
+
+            if ($stmt->execute()) {
                 echo "<script>alert('Producto subido exitosamente'); window.location.href='profile.php';</script>";
             } else {
                 echo "<script>alert('Error al guardar en la base de datos.');</script>";
@@ -88,11 +88,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <title>Blashskate</title>
     <link rel="stylesheet" href="../css/common.css">
-    <link rel="stylesheet" href="../css/sell.css"> </head>
-
-<form method="POST" action="...">
-    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
-    </form>
+    <link rel="stylesheet" href="../css/sell.css">
 </head>
 
 <body>
@@ -121,6 +117,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="card">
             <h2>Vender tu skate</h2>
             <form class="sellform" method="POST" action="sell.php" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+
                 <input type="text" name="skate" placeholder="Nombre del skate" required>
                 <br />
                 <input type="number" step="0.01" name="precio" placeholder="Precio (en Euros)" required>
@@ -144,9 +142,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <script>
-        document.getElementById('avatar').addEventListener('change', function(e) {
+        document.getElementById('avatar').addEventListener('change', function (e) {
             const file = this.files[0];
-            
+
             if (file) {
                 const validTypes = ['image/jpeg', 'image/png', 'image/webp'];
                 if (!validTypes.includes(file.type)) {

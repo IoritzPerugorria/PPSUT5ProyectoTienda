@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset='utf-8'>
     <title>Error</title>
     <link rel="stylesheet" href="../css/error.css">
 </head>
+
 <body>
     <header>
         <div class="header-top">
@@ -34,4 +36,5 @@
         </div>
     </body>
 </body>
+
 </html>
