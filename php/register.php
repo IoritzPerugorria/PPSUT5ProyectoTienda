@@ -2,7 +2,14 @@
 session_start();
 require 'db.php';
 
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("Error de validación de seguridad (CSRF).");
+    }
     $nombre = substr($conn->real_escape_string($_POST['nombre']), 0, 100);
     $apellidos = substr($conn->real_escape_string($_POST['apellidos']), 0, 100);
     $correo = substr($conn->real_escape_string($_POST['correo']), 0, 150);
@@ -54,8 +61,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta charset="UTF-8">
-    <title>Registro | Blashskate</title>
-    <link rel="stylesheet" href="../css/register.css">
+    <title>Blashskate</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/sell.css"> </head>
+
+<form method="POST" action="...">
+    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+    </form>
 </head>
 
 <body>

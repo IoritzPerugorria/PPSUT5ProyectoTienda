@@ -90,6 +90,7 @@ $stmt->close();
     <meta charset="UTF-8">
     <title>BlackDeck | Tienda</title>
     <link rel="stylesheet" href="../css/shop.css">
+    <link rel="stylesheet" href="../css/common.css">
 </head>
 <body>
     <header>

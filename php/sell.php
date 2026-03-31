@@ -2,12 +2,16 @@
 session_start();
 require 'db.php';
 
-if (!isset($_SESSION['user_id'])) {
-    echo "<script>alert('Debes iniciar sesión para vender'); window.location.href='index.php';</script>";
-    exit();
+// MODIFICADO: Token CSRF
+if (empty($_SESSION['csrf_token'])) {
+    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // MODIFICADO: Verificación CSRF antes de procesar
+    if (!isset($_POST['csrf_token']) || $_POST['csrf_token'] !== $_SESSION['csrf_token']) {
+        die("Error de validación de seguridad (CSRF).");
+    }
     $user_id = $_SESSION['user_id'];
     $skate = $_POST['skate'];
     $precio = $_POST['precio'];
@@ -82,8 +86,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 <head>
     <meta charset="UTF-8">
-    <title>BlackDeck | Vender</title>
-    <link rel="stylesheet" href="../css/sell.css">
+    <title>Blashskate</title>
+    <link rel="stylesheet" href="../css/common.css">
+    <link rel="stylesheet" href="../css/sell.css"> </head>
+
+<form method="POST" action="...">
+    <input type="hidden" name="csrf_token" value="<?= $_SESSION['csrf_token'] ?>">
+    </form>
 </head>
 
 <body>

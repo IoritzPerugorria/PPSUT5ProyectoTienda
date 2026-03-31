@@ -11,6 +11,7 @@ require 'db.php';
     <meta charset="UTF-8">
     <title>Blashskate | Tienda de Skates</title>
     <link rel="stylesheet" href="../css/index.css">
+    <link rel="stylesheet" href="../css/common.css">
 </head>
 
 <body>
